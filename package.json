@@ -1,24 +1,29 @@
 {
-  "name": "seed-element",
-  "version": "1.0.0",
+  "name": "session-service",
+  "version": "0.0.0",
   "authors": [
-    "Anonymous <anonymous@example.com>"
+    "Thomas Hourlier <hourliert@gmail.com>"
   ],
-  "description": "An element providing a solution to no problem in particular.",
+  "description": "A tiny element allowing to manage user session after login.",
   "keywords": [
     "web-component",
     "web-components",
     "polymer",
-    "seed"
+    "session",
+    "service"
   ],
-  "main": "seed-element.html",
-  "license": "http://polymer.github.io/LICENSE.txt",
-  "homepage": "https://github.com/<USERNAME>/seed-element/",
+  "main": "session-service.html",
+  "license": "MIT",
+  "homepage": "https://github.com/hourliert/session-service",
   "ignore": [
     "/.*",
     "/test/",
     "/demo/"
   ],
+  "scripts": {
+    "postinstall": "bower install",
+    "test": "gulp test:remote"
+  },
   "devDependencies": {
     "bower": "^1.4.1",
     "browser-sync": "^2.7.6",

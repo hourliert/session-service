@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 	ps = require('ps-node');
 
 var POLYSERVE_PORT = 8080,
-    elementName = 'seed-element';
+    elementName = 'session-service';
 
 var browserSyncConfig = function(path, cb) {
   bs.init({
