@@ -27,7 +27,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <!-- You can use the document as a place to set up your fixtures. -->
     <test-fixture id="session">
       <template>
-        <session-service></session-service>
+        <session-service
+          logged
+          role="authenticated">
+        </session-service>
       </template>
     </test-fixture>
 
@@ -37,10 +40,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         setup(function() {
           c1 = fixture('session');
+          c1.user = {
+            username: 'thomas',
+            password: '1234'
+          };
         });
 
-        test('defines the session service', function() {
- 
+        test('defines the "user" property', function() {
+          expect(c1.user).to.be.deep.equal({
+            username: 'thomas',
+            password: '1234'
+          });
+        });
+
+        test('defines the "logged" property', function() {
+          expect(c1.logged).to.be.equal(true);
+        });
+
+        test('defines the "role" property', function() {
+          expect(c1.role).to.be.equal('authenticated');
+        });
+
+        test('create the session', function() {
+          expect(c1.create('authenticated')).to.be.equal(true);
+          expect(c1.role).to.be.equal('authenticated');
+        });
+
+        test('destroy the session', function() {
+          expect(c1.destroy()).to.be.equal(false);
+          expect(c1.role).to.be.equal(null);
         });
 
       });

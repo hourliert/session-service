@@ -1,6 +1,6 @@
 {
   "name": "session-service",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "authors": [
     "Thomas Hourlier <hourliert@gmail.com>"
   ],
@@ -21,7 +21,8 @@
     "/demo/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.0.0"
+    "polymer": "Polymer/polymer#^1.0.0",
+    "iron-localstorage": "PolymerElements/iron-localstorage#~1.0.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",

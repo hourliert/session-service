@@ -9,6 +9,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <link rel="import" href="../polymer/polymer.html">
 
+<link rel="import" href="../iron-localstorage/iron-localstorage.html">
+
 <!--
 A tiny element allowing to manage user session after login.
 
@@ -16,19 +18,29 @@ Example:
 
     <session-service></session-service>
 
-@group Session Service
-@element session-service
+
+@group Seed Elements
+@element seed-element
 @demo demo/index.html
 @hero hero.svg
 -->
 <dom-module id="session-service">
 
-  <style>
-
-  </style>
-
   <template>
-    <h1>&lt;session-service&gt;</h1>
+    <iron-localstorage
+      name="user" 
+      value="{{user}}">
+    </iron-localstorage>
+
+    <iron-localstorage
+      name="logged" 
+      value="{{logged}}">
+    </iron-localstorage>
+
+    <iron-localstorage
+      name="role" 
+      value="{{role}}">
+    </iron-localstorage>
   </template>
 
 </dom-module>
@@ -42,12 +54,31 @@ Example:
     properties: {
 
       /**
-       * Test
-       * @type {Boolean}
+       * User model.
+       * @type {Object}
        */
-      test: {
+      user: {
+        type: Object
+      },
+
+      /**
+       * Reflect the user loggin status
+       * @type {Boolean}
+       * @default false
+       */
+      logged: {
         type: Boolean,
-        value: false
+        default: false,
+        notify: true
+      },
+
+      /**
+       * Reflect the user role
+       * @type {String}
+       */
+      role: {
+        type: String,
+        notify: true
       }
 
     },
@@ -61,6 +92,29 @@ Example:
     detached: function() {},
 
     // Element Behavior
+    
+    /**
+     * Create the session
+     * @param  {String} role User role
+     * @return {Boolean}     User loggin status
+     */
+    create: function(role) {
+      this.loggedIn = true;
+      this.role = role;
+
+      return this.loggedIn;
+    },
+
+    /**
+     * Destroy the session
+     * @return {Boolean} User loggin status
+     */
+    destroy: function() {
+      this.loggedIn = false;
+      this.role = null;
+
+      return this.loggedIn;
+    }
   });
 
 </script>

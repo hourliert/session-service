@@ -12,7 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>seed-element Demo</title>
+    <title>session-service Demo</title>
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="../session-service.html">
   </head>
@@ -20,11 +20,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <p>An example of <code>&lt;session-service&gt;</code>:</p>
 
-    <session-service>
-    </session-service>
+    <template is="dom-bind" id="app">
+      <session-service
+        user="{{user}}"
+        logged
+        role="authenticated">
+      </session-service>
+    </template>
 
     <script>
-      
+      var app = document.querySelector('#app');
+
+      app.user = {
+        username: 'thomas',
+        password: '1234'
+      };
     </script>
 
   </body>
