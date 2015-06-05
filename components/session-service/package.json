@@ -1,0 +1,36 @@
+{
+  "name": "session-service",
+  "version": "0.0.1",
+  "authors": [
+    "Thomas Hourlier <hourliert@gmail.com>"
+  ],
+  "description": "A tiny element allowing to manage user session after login.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "session",
+    "service"
+  ],
+  "main": "session-service.html",
+  "license": "MIT",
+  "homepage": "https://github.com/hourliert/session-service",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "scripts": {
+    "postinstall": "bower install",
+    "test": "gulp test:remote"
+  },
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "browser-sync": "^2.7.6",
+    "gulp": "^3.8.11",
+    "gulp-bg": "0.0.5",
+    "polyserve": "^0.4.0",
+    "ps-node": "0.0.4",
+    "web-component-tester": "^3.1.4"
+  }
+}

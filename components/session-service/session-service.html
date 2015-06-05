@@ -1,0 +1,124 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+
+<link rel="import" href="../iron-localstorage/iron-localstorage.html">
+
+<!--
+A tiny element allowing to manage user session after login.
+
+Example:
+
+    <session-service
+      user="[[user]]"
+      logged
+      role="authenticated">
+    </session-service>
+
+
+@group Seed Elements
+@element seed-element
+@demo demo/index.html
+@hero hero.svg
+-->
+<dom-module id="session-service">
+
+  <template>
+    <iron-localstorage
+      name="user" 
+      value="{{user}}">
+    </iron-localstorage>
+
+    <iron-localstorage
+      name="logged" 
+      value="{{logged}}">
+    </iron-localstorage>
+
+    <iron-localstorage
+      name="role" 
+      value="{{role}}">
+    </iron-localstorage>
+  </template>
+
+</dom-module>
+
+<script>
+
+  Polymer({
+
+    is: 'session-service',
+
+    properties: {
+
+      /**
+       * User model.
+       * @type {Object}
+       */
+      user: {
+        type: Object
+      },
+
+      /**
+       * Reflect the user loggin status
+       * @type {Boolean}
+       * @default false
+       */
+      logged: {
+        type: Boolean,
+        default: false,
+        notify: true
+      },
+
+      /**
+       * Reflect the user role
+       * @type {String}
+       */
+      role: {
+        type: String,
+        notify: true
+      }
+
+    },
+
+    // Element Lifecycle
+
+    ready: function() {},
+
+    attached: function() {},
+
+    detached: function() {},
+
+    // Element Behavior
+    
+    /**
+     * Create the session
+     * @param  {String} role User role
+     * @return {Boolean}     User loggin status
+     */
+    create: function(role) {
+      this.loggedIn = true;
+      this.role = role;
+
+      return this.loggedIn;
+    },
+
+    /**
+     * Destroy the session
+     * @return {Boolean} User loggin status
+     */
+    destroy: function() {
+      this.loggedIn = false;
+      this.role = null;
+
+      return this.loggedIn;
+    }
+  });
+
+</script>

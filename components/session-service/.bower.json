@@ -1,0 +1,42 @@
+{
+  "name": "session-service",
+  "authors": [
+    "Thomas Hourlier <hourliert@gmail.com>"
+  ],
+  "description": "A tiny element allowing to manage user session after login.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "session",
+    "service"
+  ],
+  "main": "session-service.html",
+  "license": "MIT",
+  "homepage": "https://github.com/hourliert/session-service",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "iron-localstorage": "PolymerElements/iron-localstorage#~1.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*",
+    "iron-test-helpers": "PolymerElements/iron-test-helpers#~1.0.1",
+    "test-fixture": "PolymerElements/test-fixture#~1.0.0"
+  },
+  "_release": "151bfbdce3",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "151bfbdce372120d4ccf7507853d724be8444226"
+  },
+  "_source": "git://github.com/hourliert/session-service.git",
+  "_target": "master",
+  "_originalSource": "hourliert/session-service",
+  "_direct": true
+}
